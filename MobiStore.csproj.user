@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="UIForm\AlertsUI\alert_categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\AlertsUI\alert_products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\AlertsUI\alert_purchase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\AlertsUI\alert_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\AlertsUI\frm_alert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frmAdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frm_about.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frm_categorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frm_products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frm_Purchase_AND_Sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frm_User.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UIForm\frm_user_dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

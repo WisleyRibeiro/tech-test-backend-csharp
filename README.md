@@ -1,67 +1,73 @@
 # Prova Técnica - Desenvolvedor de Software Backend C#
 
-## Instruções
+## LOGIN
 
-- A prova consiste na implementação de uma API em C# seguindo os requisitos e critérios estabelecidos abaixo.
-- Faça um fork privado do presente repositório e adicione o usuário "alexmontanha@mobilus.com.br" como contribuidor do repositório.
-- Utilize o formato MarkDown para formatar todas as informações que são relevantes para o projeto.
-- O candidato deve realizar as tarefas descritas na prova e garantir que o repositório com o texto contenha o código-fonte completo junto com um arquivo explicativo em Markdown descrevendo as soluções adotadas.
-- O candidato tem o prazo de 7 dias para finalizar.
-- Ao finalizar, o candidato deve enviar um e-mail recrutamento@mobilus.com.br com o assunto "Vaga Desenvolvedor - [seu nome]", informando que finalizou o teste.
-- Todas as alterações feitas após o envio do e-mail serão desconsideradas.
+Ao iniciar o software, os usuários se deparam com uma tela de login que oferece duas opções: logar como Administrador ou como Usuário Comum.
 
+### LOGANDO COMO ADMINISTRADOR
 
-## Descrição do Projeto
+Para entrar como Administrador, é necessário inserir as seguintes credenciais:
 
-A empresa __Mobilus Tecnologia__ está em busca de um desenvolvedor de software altamente qualificado para implementar uma API em C#. A API deve oferecer um CRUD completo, conter regras de validação e campos calculados, e utilizar três repositórios distintos: Arquivo texto, Banco de dados SQL e Banco NoSQL.
+- Usuário: admin
+- Senha: admin
+- Tipo de Usuário: Administrador
 
-## Requisitos Técnicos
+Após o login, o Administrador terá acesso a privilégios elevados, incluindo funcionalidades de gerenciamento direto do banco de dados SQL (detalhado posteriormente). Estas funcionalidades incluem:
 
-- Linguagem de Programação: C#
-- Desenvolvimento Backend
-- Bancos de Dados SQL
-- Padrões de Projeto
-- Princípios do SOLID
-- Testes Unitários usando MSTests
+- Gerenciamento de Usuários: Permite cadastrar novos usuários, definir suas permissões (Administrador ou Comum), atualizar dados de usuários existentes e excluí-los. Além disso, há uma funcionalidade de busca que permite encontrar usuários com base em palavras-chave.
 
-## Tarefas
+- Gerenciamento de Categorias: Oferece a capacidade de criar categorias para classificar produtos, com opções para cadastro, atualização, exclusão e busca.
 
-1. Implemente uma API em C# que realize operações de CRUD (Create, Read, Update, Delete) completo para um recurso chamado "Produto". O "Produto" deve conter os seguintes atributos: Id (identificador único), Nome, Preço, Quantidade em Estoque, e Data de Criação. Os endpoints esperados são:
+- Gerenciamento de Produtos: Permite adicionar, atualizar, excluir e visualizar informações detalhadas sobre produtos. Também é possível associar produtos às categorias previamente criadas e realizar buscas por palavras-chave.
 
+- Os painéis "Inventário" e "Transações" representam conceitos, possibilitando a criação de funcionalidades adicionais com base na estrutura existente no software. O banco de dados já possui tabelas correspondentes a esses painéis.
 
+### LOGANDO COMO USUÁRIO COMUM
 
-``` html
-   POST /api/produtos: Cria um novo produto.
-   GET /api/produtos: Retorna a lista de todos os produtos.
-   GET /api/produtos/{id}: Retorna os detalhes de um produto específico.
-   PUT /api/produtos/{id}: Atualiza os dados de um produto existente.
-   DELETE /api/produtos/{id}: Remove um produto do sistema.
-```
+Para entrar como Usuário Comum, é necessário inserir as seguintes credenciais:
 
-2. Implemente uma regra de validação para o atributo "Preço" do produto. O preço não pode ser negativo, e o sistema deve retornar uma mensagem de erro apropriada em caso de tentativa de criação ou atualização de um produto com preço inválido.
+- Usuário: comum
+- Senha: comum
+- Tipo de Usuário: Comum
 
-3. Adicione um campo calculado ao produto chamado "Valor Total" que represente o valor total do produto em estoque (Preço x Quantidade em Estoque). Esse campo deve ser retornado na consulta de detalhes do produto.
+Os Usuários Comuns têm acesso a funcionalidades com privilégios reduzidos, incluindo:
 
-4. Utilize três repositórios distintos para armazenar os dados dos produtos:
-   - 4.1) Repositório de Arquivo Texto: Os dados devem ser armazenados em um arquivo texto com formato adequado. Implemente as operações de leitura e escrita nesse repositório.
-   - 4.2) Repositório de Banco de Dados SQL: Utilize um banco de dados SQL de sua escolha (por exemplo, SQL Server, MySQL, PostgreSQL) para implementar as operações de persistência.
-   - 4.3) Repositório de Banco NoSQL: Utilize um banco de dados NoSQL de sua escolha (por exemplo, MongoDB, Cassandra, Couchbase) para implementar as operações de persistência.
+- Gerenciamento de Vendas: Permite adicionar produtos e suas quantidades a uma venda. Também oferece uma funcionalidade de busca que possibilita encontrar produtos com base em palavras-chave.
 
-## Critérios de Avaliação
+- Cálculos: Na lateral direita da tela, são exibidos valores como Subtotal, Total Geral e Troco. Os usuários podem adicionar descontos ou taxas, o que atualizará imediatamente o valor do Total Geral. Além disso, ao inserir um valor no campo Total Pago, o sistema calculará automaticamente o troco devido ao cliente.
 
-- API implementada, rodando e com uma forma de acesso para teste em produção.
-- Implementação correta e funcional da API com todas as operações CRUD.
-- Correta aplicação da regra de validação para o atributo "Preço".
-- Cálculo correto do campo "Valor Total".
-- Implementação dos três repositórios distintos com sucesso na persistência dos dados.
-- Organização e clareza do código.
-- Utilização adequada dos princípios do SOLID.
-- Criação de testes unitários para as principais funcionalidades da API.
+- Lista de Produtos: Os produtos adicionados à venda são listados, permitindo que os usuários visualizem informações detalhadas, incluindo a possibilidade de adicionar imagens e outros detalhes, se necessário.
 
-## Observações
+- Observação: Embora os títulos das janelas sejam "Comprar" e "Vendas", as funcionalidades são essencialmente as mesmas, com o objetivo de permitir compras e vendas de produtos usando a mesma lógica.
 
-- O candidato tem liberdade para escolher a estrutura do projeto, frameworks e bibliotecas adicionais que julgar adequados para a realização da prova.
-- É importante seguir as boas práticas de desenvolvimento e manter um código limpo e legível.
-- Inclua no arquivo explicativo em Markdown informações sobre como executar o projeto, incluindo a configuração dos bancos de dados (caso necessário) e a execução dos testes unitários.
+## BANCO DE DADOS ESCOLHIDO
 
-Boa prova e sucesso no desafio! Em caso de dúvidas, entre em contato pelo e-mail recrutamento@mobilus.com.br.
+O banco de dados selecionado para este projeto é o SQL (SQL Server Management Studio - SSMS). Inicialmente, foi configurado um banco de dados local com acesso remoto via IP. No entanto, para maior comodidade dos avaliadores, o servidor foi migrado para a nuvem.
+
+### AWS (Amazon Web Services)
+
+A Amazon Web Services (AWS) foi escolhida como provedor para hospedar o servidor de banco de dados. Essa escolha garante que o banco de dados esteja disponível 24/7, evitando a necessidade de configurações de firewall e garantindo maior segurança dos dados.
+
+Desde o início do projeto, o objetivo foi criar um software que se assemelhasse a um produto final ou a um Mínimo Produto Viável (MPV). Portanto, houve dedicação para atender aos requisitos solicitados, criar uma interface amigável, garantir a segurança dos dados e garantir que todas as funcionalidades estejam plenamente funcionais.
+
+### SISTEMA DE ALERTAS
+
+O sistema de alertas foi personalizado para utilizar a interface nativa da aplicação em vez do tradicional `MessageBox.Show("Alerta!")`. Isso foi feito para economizar armazenamento e simplificar a experiência do usuário. Os alertas em cada tela alteram uma label, eliminando a necessidade de criar telas de alerta separadas para cada situação (detalhes disponíveis no código).
+
+### CONDICIONAMENTOS
+
+A aplicação implementa diversos condicionamentos, incluindo:
+
+- Validação de inserção de valores inválidos.
+- Verificação de campos obrigatórios não preenchidos.
+- Aplicação de regras para a inserção de dados (por exemplo, a entrada de caracteres não numéricos em campos destinados a valores numéricos é impedida).
+
+Esses condicionamentos evitam problemas de tratamento de dados e erros lógicos por parte dos usuários.
+
+### OBSERVAÇÕES
+
+Espero ter atendido às expectativas. Dediquei-me muito a este projeto com o objetivo de fornecer o meu melhor. Estou à disposição para fornecer mais detalhes, se necessário. Agradeço a vocês por esta valiosa oportunidade.
+
+### DEDICATÓRIA
+
+Dedico este trabalho ao meu Senhor, Todo-Poderoso!
